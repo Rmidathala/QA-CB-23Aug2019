@@ -55,6 +55,7 @@ public class ContactUsPage {
 	
 	public static final By nonUKAcceptCookies =By.xpath("//a[@class='optanon-allow-all']");
 	
+	public static final By currentDate = By.xpath("(//tbody/tr[1]/td[2])[2]");
 	
 	
 }

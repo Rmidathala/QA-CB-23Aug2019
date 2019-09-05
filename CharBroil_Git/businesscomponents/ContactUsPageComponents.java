@@ -51,6 +51,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			}else {
 				report.updateTestLog("Verify User navigated to Contact Us Page", "User NOT navigated to Contact Us Page", Status.FAIL);
 			}
+			Thread.sleep(5000);
 			if(driver.getCurrentUrl().contains("contact-us")) {
 			if(wdu.objectExists(ContactUsPage.btnAcceptCookies)) {
 				driver.findElement(ContactUsPage.btnAcceptCookies).click();
@@ -101,6 +102,8 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			 * purchaseDate+"';");
 			 */
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxPurchaseDate), purchaseDate, "Contact Us Page - Text Box Purchase Date");
+			//driver.findElement(ContactUsPage.txtBoxPurchaseDate).click();
+			//driver.findElement(ContactUsPage.currentDate).click();
 			commonFunctions.selectAnyElement(driver.findElement(ContactUsPage.drpDownNameOfRetailer), 1, "Contact Us Page - Drop Down - Name of the Retailer");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxPartRequired), requiredPart, "Contact Us Page - Text Box Required Part");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxFirstName), firstName, "Contact Us Page - Text Box First Name");
@@ -139,18 +142,18 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp), "Contact Us Page - Close pop up");
 			gc.scrollToElement(ContactUsPage.btnSubmit);
-			/*
-			 * commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.
-			 * btnSubmit), "Contact Us Page - Submit Button");
-			 * 
-			 * if(driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg
-			 * )) { report.updateTestLog("Verify contact us Page is submitted successfully",
-			 * "User is able to submit the contact Us Page Successfully", Status.PASS);
-			 * }else {
-			 * report.updateTestLog("Verify contact us Page is submitted successfully",
-			 * "User is NOT able to submit the contact Us Page Successfully", Status.FAIL);
-			 * }
-			 */
+			
+			  commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.
+			  btnSubmit), "Contact Us Page - Submit Button");
+			  
+			  if(driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg
+			  )) { report.updateTestLog("Verify contact us Page is submitted successfully",
+			  "User is able to submit the contact Us Page Successfully", Status.PASS);
+			  }else {
+			  report.updateTestLog("Verify contact us Page is submitted successfully",
+			  "User is NOT able to submit the contact Us Page Successfully", Status.FAIL);
+			  }
+			 
 			
 		}catch(Exception e) {
 			report.updateTestLog("Exception", "Something went Wrong"+e.toString(), Status.FAIL);
