@@ -52,17 +52,21 @@ public class ContactUsPageComponents extends ReusableLibrary {
 				report.updateTestLog("Verify User navigated to Contact Us Page", "User NOT navigated to Contact Us Page", Status.FAIL);
 			}
 			Thread.sleep(5000);
-			if(driver.getCurrentUrl().contains("contact-us")) {
-			if(wdu.objectExists(ContactUsPage.btnAcceptCookies)) {
-				driver.findElement(ContactUsPage.btnAcceptCookies).click();
+			if(wdu.objectExists(ContactUsPage.nonUKAcceptCookies)) {
+				driver.findElement(ContactUsPage.nonUKAcceptCookies).click();
 				report.updateTestLog("Click on Accept Cookies button", "Accept Cookies Button is successfully clicked", Status.PASS);
 			}
-			} else {
-				if(wdu.objectExists(ContactUsPage.nonUKAcceptCookies)) {
-					driver.findElement(ContactUsPage.nonUKAcceptCookies).click();
-					report.updateTestLog("Click on Accept Cookies button", "Accept Cookies Button is successfully clicked", Status.PASS);
-				}
-			}
+			/*
+			 * if(driver.getCurrentUrl().contains("contact-us")) {
+			 * if(wdu.objectExists(ContactUsPage.btnAcceptCookies)) {
+			 * driver.findElement(ContactUsPage.btnAcceptCookies).click();
+			 * report.updateTestLog("Click on Accept Cookies button",
+			 * "Accept Cookies Button is successfully clicked", Status.PASS); } } else {
+			 * if(wdu.objectExists(ContactUsPage.nonUKAcceptCookies)) {
+			 * driver.findElement(ContactUsPage.nonUKAcceptCookies).click();
+			 * report.updateTestLog("Click on Accept Cookies button",
+			 * "Accept Cookies Button is successfully clicked", Status.PASS); } }
+			 */
 		}catch(Exception e) {
 			
 		}
