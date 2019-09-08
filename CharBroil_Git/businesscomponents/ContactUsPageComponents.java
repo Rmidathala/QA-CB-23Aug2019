@@ -134,9 +134,10 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
 			drpDowncountry.selectByIndex(1);
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxCity), city, "Contact Us Page - Text Box City");
+			if(!driver.getCurrentUrl().contains("dk/kontakt-os/")) {
 			Select drpstate = new Select(driver.findElement(ContactUsPage.drpDownState));
 			drpstate.selectByIndex(1);
-			
+			}
 			
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxPostalCode), zipCode, "Contact Us Page - Text Postal Code");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxPhone), phone, "Contact Us Page - Text Box Phone");
