@@ -6,6 +6,7 @@ import java.net.URL;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -43,6 +44,8 @@ public class BrowserStackDriverFactory {
 		desiredCapabilities.setCapability("browser_version", browserVersion);
 		desiredCapabilities.setCapability("browser", browser);
 		desiredCapabilities.setCapability("screen-resolution","1366x768");
+		desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		desiredCapabilities.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 		if(browser.toString().toLowerCase().contains("chrome")){
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--start-maximized");

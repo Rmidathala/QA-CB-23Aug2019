@@ -110,24 +110,28 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxLastName), lastName, "Contact Us Page - Text Box Last Name");
 			
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxStreetAddrLine1), addrLine1, "Contact Us Page - Text Box Street Address Line 1");
-			if(driver.getCurrentUrl().contains("kontakt-os")) {
-				country="DK";
-				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
-				drpDowncountry.selectByValue(country);
-				
-			} else if(driver.getCurrentUrl().contains("nous-contacter")) {
-				country="FR";
-				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
-				drpDowncountry.selectByValue(country);
-				
-			} else {
-				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
-				drpDowncountry.selectByValue(country);
-				commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxStateOther), state, "Contact Us Page - Text Box State");
-			}
-			
+			/*
+			 * if(driver.getCurrentUrl().contains("kontakt-os")) { country="DK"; Select
+			 * drpDowncountry = new
+			 * Select(driver.findElement(ContactUsPage.drpDownCountry));
+			 * drpDowncountry.selectByValue(country);
+			 * 
+			 * } else if(driver.getCurrentUrl().contains("nous-contacter")) { country="FR";
+			 * Select drpDowncountry = new
+			 * Select(driver.findElement(ContactUsPage.drpDownCountry));
+			 * drpDowncountry.selectByValue(country);
+			 * 
+			 * } else { Select drpDowncountry = new
+			 * Select(driver.findElement(ContactUsPage.drpDownCountry));
+			 * drpDowncountry.selectByValue(country);
+			 * commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.
+			 * txtBoxStateOther), state, "Contact Us Page - Text Box State"); }
+			 */
+			Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
+			drpDowncountry.deselectByIndex(1);
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxCity), city, "Contact Us Page - Text Box City");
-			
+			Select drpstate = new Select(driver.findElement(ContactUsPage.drpDownState));
+			drpstate.deselectByIndex(1);
 			
 			
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxPostalCode), zipCode, "Contact Us Page - Text Postal Code");
