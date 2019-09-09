@@ -265,9 +265,9 @@ public class ShoppingCartComponents extends ReusableLibrary {
 
 			driver.findElement(ShoppingCartPage.lnkDeleteProduct).click();
 
-			wdu.waitUntilElementEnabled(ShoppingCartPage.lblEmptyShoppingCart, 40);
+			wdu.waitUntilElementEnabled(ShoppingCartPage.shopicon, 40);
 
-			if (driver.findElement(ShoppingCartPage.lblEmptyShoppingCart).isDisplayed()) {
+			if (driver.findElement(ShoppingCartPage.shopicon).isDisplayed()) {
 				report.updateTestLog("Validate Delete Product", "Validating Delete product option is Successful",
 						Status.PASS);
 			}
