@@ -346,7 +346,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 		            .activeElement()
 		            .sendKeys(
 		            		System.getProperty("user.dir")+ "\\DummyDataFiles\\Strang.pdf");
-		    Thread.sleep(60000);
+		    Thread.sleep(120000);
 		    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxSubject), subject, "Contact Us Page - Text Box Subject");
