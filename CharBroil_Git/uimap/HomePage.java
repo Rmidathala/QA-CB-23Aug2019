@@ -225,4 +225,5 @@ public class HomePage {
 
 	public static final By linkDataSubjectAccessRequest = By.xpath("//a[text()='Data Subject Access Request']");
 
+	public static final By lnkCatetoryLaborDaySavings = By.xpath("//a[@class='ais-hierarchical-menu--link']");
 }

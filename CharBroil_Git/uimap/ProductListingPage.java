@@ -15,8 +15,6 @@ public class ProductListingPage {
 
 	public static final By imgProductPLPViaMenu = By.xpath("//div[@class='ais-infinite-hits']/div[1]//a/div");
 
-
-
 	public static final By lblOnlineSale = By.xpath("//h1[contains(text(),'On Sale')]");
 	public static final By divLeftNavigationPane = By.xpath("//div[@id='algolia-left-container']");
 	public static final By divRightNavigationPane = By.xpath("//div[@id='algolia-right-container']");
@@ -27,7 +25,10 @@ public class ProductListingPage {
 
 	public static final By lblHoliday2017 = By.xpath("//h1[contains(text(),'Holiday 2018')]");
 
-
+	public static final By tootipGrillSize = By.xpath("(//span[@class='facet-tooltip'])[1]");
+	
+	public static final By tooltipnumberOfMainBurners = By.xpath("(//span[@class='facet-tooltip'])[2]");
+	
 	//========================================================//
 	//		*********EU methods*************				  //
 	//========================================================//

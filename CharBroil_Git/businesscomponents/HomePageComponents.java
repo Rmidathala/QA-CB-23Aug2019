@@ -2684,5 +2684,35 @@ public class HomePageComponents extends ReusableLibrary {
 		}
 
 	}
+	
+	public void validateLaborDaySavingsPage() {
+		
+		try {
+			String laborURL = dataTable.getData("General_Data", "LaborDaySavingsURL");
+			driver.navigate().to(laborURL);
+			wdu.waitUntilPageLoaded(10);
+			if(driver.getTitle().contains("Labor Day Savings")) {
+				report.updateTestLog("Labor Day Savings Page Title verification", "Labor Day Savings Title is displayed correctly", Status.PASS);
+			} else {
+				report.updateTestLog("Labor Day Savings Page Title verification", "Labor Day Savings Title is NOT displayed correctly", Status.FAIL);
+			}
+			List<WebElement>  categories = driver.findElements(HomePage.lnkCatetoryLaborDaySavings);
+			boolean laborCategory = false;
+			for (WebElement category : categories) {
+				if(category.getText().contains("Labor Day Savings")) {
+					laborCategory=true;	
+					break;
+				}
+			}
+			if(laborCategory==true) {
+				report.updateTestLog("Verify Categories in Labor Day Savings Page doesn't have the Category 'Labor Day Saings'", "Labor Day Savings Category is not dispalyed", Status.PASS);
+			} else {
+				report.updateTestLog("Verify Categories in Labor Day Savings Page doesn't have the Category 'Labor Day Saings'", "Labor Day Savings Category is displayed", Status.FAIL);
+			}
+			
+		}catch(Exception e) {
+			
+		}
+	}
 
 }

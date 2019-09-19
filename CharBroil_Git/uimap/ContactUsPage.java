@@ -57,5 +57,7 @@ public class ContactUsPage {
 	
 	public static final By currentDate = By.xpath("(//tbody/tr[1]/td[2])[2]");
 	
+	public static final By btnUploadFiles = By.xpath("//label[@class='form__file-button button button--center']");
 	
+	public static final By msgError = By.xpath("//li[@class='error-msg']/ul/li/span");
 }

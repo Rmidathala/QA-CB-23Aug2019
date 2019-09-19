@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.cognizant.framework.Status;
 import com.cognizant.framework.selenium.WebDriverUtil;
@@ -1620,4 +1621,30 @@ public class ProductListingPageComponents extends ReusableLibrary {
 	}
 	/***************************************************************************************************************************************/
 
+	public void validateGasGrillPageTooltips() {
+		try {
+			String grillTooltip = dataTable.getData("General_Data", "GrillSizeTooltip");
+			String numberBurnerTooltip = dataTable.getData("General_Data", "NumberOfBurnersTooltip");
+			new Actions(driver.getWebDriver()).moveToElement(driver.findElement(ProductListingPage.tootipGrillSize)).build().perform();
+			String grillSizeTooltip = driver.findElement(ProductListingPage.tootipGrillSize).getAttribute("data-original-title");
+			System.out.println("Grill Size Tooltip :"+grillSizeTooltip);
+			if(grillSizeTooltip.contains(grillTooltip)) {
+				report.updateTestLog("Validate Grill Size Tool Tip", "Grill Size Tool tip is correct", Status.PASS);
+			} else {
+				report.updateTestLog("Validate Grill Size Tool Tip", "Grill Size Tool tip is NOT correct", Status.FAIL);
+			}
+			new Actions(driver.getWebDriver()).moveToElement(driver.findElement(ProductListingPage.tooltipnumberOfMainBurners)).build().perform();
+			String numberOfBurnersTooltip = driver.findElement(ProductListingPage.tooltipnumberOfMainBurners).getAttribute("data-original-title");
+			System.out.println("Number of Burners Tooltip: "+numberOfBurnersTooltip);
+			if(numberOfBurnersTooltip.contains(numberBurnerTooltip)) {
+				report.updateTestLog("Validate Numeber of Burners Tool Tip", "Numeber of Burners Tool tip is correct", Status.PASS);
+			} else {
+				report.updateTestLog("Validate Numeber of Burners Tool Tip", "Numeber of Burners tip is NOT correct", Status.FAIL);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception while validating Grill Page Tool tip", "Exception is " + e, Status.FAIL);
+		}
+	
+	}
 }

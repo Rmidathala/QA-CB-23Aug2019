@@ -171,8 +171,7 @@ public class ProductDetailsPage {
 	
 	public static final By lblSectionRatingAndReview = By.xpath("//div[@id='ratings']");
 	
-	
-	
+	public static final By btnAddToCartFrequentlyBoughtWith = By.xpath("(//button[contains(@id, 'gtm-related-product')])[1]");
 	
 	
 	

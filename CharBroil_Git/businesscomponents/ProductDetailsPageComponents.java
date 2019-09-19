@@ -13,6 +13,7 @@ import supportlibraries.ScriptHelper;
 import uimap.CheckOutPage;
 import uimap.HomePage;
 import uimap.ProductDetailsPage;
+import uimap.ShoppingCartPage;
 
 public class ProductDetailsPageComponents extends ReusableLibrary {
 
@@ -59,6 +60,65 @@ public class ProductDetailsPageComponents extends ReusableLibrary {
 
 	}
 
+	
+
+	/*************************************
+	 * To Add Frequently bought product to Cart
+	 *********************************************************/
+
+	public void addFrequentlyBoughtProduct() {
+
+		try {
+			
+			gc.scrollToElement(ProductDetailsPage.btnAddtoCartPDP);
+
+			driver.findElement(ProductDetailsPage.btnAddtoCartPDP).click();
+
+			Thread.sleep(2000);
+
+			// gc.LiveChatPopUpHandle();
+
+			wdu.waitUntilElementEnabled(ProductDetailsPage.btnViewCartCheckoutPDP, 30);
+
+			if (driver.findElement(ProductDetailsPage.btnViewCartCheckoutPDP).isDisplayed()) {
+				report.updateTestLog("Product Add", "Product added to cart", Status.PASS);
+			}
+
+			else {
+				report.updateTestLog("Product Add", "Product is not added to cart", Status.FAIL);
+
+			}
+			
+			driver.findElement(ProductDetailsPage.btnAddToCartFrequentlyBoughtWith).click();
+			Thread.sleep(5000);
+			if(driver.findElement(ShoppingCartPage.titleShoppingCart).getText().contains("SHOPPING CART")) {
+				report.updateTestLog("Verify Frequently Bought Product is Added to cart and navigated to Shopping Cart Page", "Frequently Bought Product added to cart and navigated to shopping cart Page", Status.PASS);
+			}
+
+			else {
+				report.updateTestLog("Verify Frequently Bought Product is Added to cart and navigated to Shopping Cart Page", "Frequently Bought Product NOT added to cart and NOT navigated to shopping cart Page", Status.FAIL);
+
+			}
+			
+			List<WebElement> products = driver.findElements(ShoppingCartPage.lnkProducts);
+			if(products.size()==2) {
+				report.updateTestLog("Verify Main Product and Frequently Bought Product are added to Shopping Cart", "Main Product and Frequently bought product are added to the Shopping cart", Status.PASS);
+			}
+
+			else {
+				report.updateTestLog("Verify Main Product and Frequently Bought Product are added to Shopping Cart", "Main Product and Frequently bought product are NOT added to the Shopping cart", Status.FAIL);
+
+			}
+		}
+
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in adding product in cart", "Exception is " + e, Status.FAIL);
+		}
+
+	}
+
+	
 	/*************************************************************************************************************************/
 
 	/*************************************
