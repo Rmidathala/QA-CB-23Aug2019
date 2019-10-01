@@ -1,5 +1,11 @@
 package businesscomponents;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.ui.Select;
@@ -539,14 +545,17 @@ public class ContactUsPageComponents extends ReusableLibrary {
 					"Contact Us Page - Text Box Phone");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxEmail), email,
 					"Contact Us Page - Text Box Email");
-
+			String mainWindowHandle = driver.getWebDriver().getWindowHandle();
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnUploadFiles),
 					"Button - Upload Files");
-			driver.switchTo().activeElement()
-					.sendKeys(System.getProperty("user.dir") + "\\DummyDataFiles\\Test File 2.pdf");
-			Thread.sleep(60000);
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
+		 
+			Set<String> windowsHandles = driver.getWindowHandles();
+			driver.getWebDriver().switchTo().window(windowsHandles.toArray()[windowsHandles.size()-1].toString());
+			 driver.switchTo().activeElement().sendKeys(System.getProperty("user.dir") +
+					  "\\DummyDataFiles\\Test File 2.pdf"); Thread.sleep(60000);
+					  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			
+			driver.getWebDriver().switchTo().window(mainWindowHandle);
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxSubject), subject,
 					"Contact Us Page - Text Box Subject");
 
