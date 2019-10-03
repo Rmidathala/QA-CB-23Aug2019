@@ -418,7 +418,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxEmail), email,
 					"Contact Us Page - Text Box Email");
 
-			String fileName = System.getProperty("user.dir")+"\\DummyDataFiles\\Test File 2.pdf";
+			String fileName = System.getProperty("user.dir")+"/DummyDataFiles/Test File 2.pdf";
 			driver.findElement(ContactUsPage.fileUploadPath).sendKeys(fileName);
 			if(commonFunctions.isElementPresentContainsText(driver.findElement(ContactUsPage.uploadedFileName), "Uploaded File Name", "Test File 2.pdf")) {
 				report.updateTestLog("Verify the file to be uploaded is set properly",
@@ -542,7 +542,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 					"Contact Us Page - Text Box Phone");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxEmail), email,
 					"Contact Us Page - Text Box Email");
-			String fileName = System.getProperty("user.dir")+"\\DummyDataFiles\\Test File 2.pdf";
+			String fileName = System.getProperty("user.dir")+"/DummyDataFiles/Test File 2.pdf";
 			driver.findElement(ContactUsPage.fileUploadPath).sendKeys(fileName);
 			if(commonFunctions.isElementPresentContainsText(driver.findElement(ContactUsPage.uploadedFileName), "Uploaded File Name", "Test File 2.pdf")) {
 				report.updateTestLog("Verify the file to be uploaded is set properly",
