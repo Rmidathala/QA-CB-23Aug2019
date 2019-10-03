@@ -1,11 +1,5 @@
 package businesscomponents;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.ui.Select;
@@ -545,17 +539,15 @@ public class ContactUsPageComponents extends ReusableLibrary {
 					"Contact Us Page - Text Box Phone");
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxEmail), email,
 					"Contact Us Page - Text Box Email");
-			String mainWindowHandle = driver.getWebDriver().getWindowHandle();
-			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnUploadFiles),
-					"Button - Upload Files");
-		 
-			Set<String> windowsHandles = driver.getWindowHandles();
-			driver.getWebDriver().switchTo().window(windowsHandles.toArray()[windowsHandles.size()-1].toString());
-			 driver.switchTo().activeElement().sendKeys(System.getProperty("user.dir") +
-					  "\\DummyDataFiles\\Test File 2.pdf"); Thread.sleep(60000);
-					  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-			
-			driver.getWebDriver().switchTo().window(mainWindowHandle);
+			String fileName = System.getProperty("user-dir")+"\\DummyDataFiles\\Test File 2.pdf";
+			driver.findElement(ContactUsPage.fileUploadPath).sendKeys(fileName);
+			if(commonFunctions.isElementPresentContainsText(driver.findElement(ContactUsPage.uploadedFileName), "Uploaded File Name", "Test File 2.pdf")) {
+				report.updateTestLog("Verify the file to be uploaded is set properly",
+						"The file to be uploaded is set properly", Status.PASS);
+			} else {
+				report.updateTestLog("Verify the file to be uploaded is set properly",
+						"The file to be uploaded is NOT set", Status.FAIL);
+			}
 			commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxSubject), subject,
 					"Contact Us Page - Text Box Subject");
 
