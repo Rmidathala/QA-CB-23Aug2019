@@ -12,14 +12,13 @@ import org.openqa.selenium.Proxy.ProxyType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.*;
 
 import com.cognizant.framework.FrameworkException;
@@ -90,18 +89,13 @@ public class WebDriverFactory {
 		case FIREFOX:
 			// Takes the system proxy settings automatically
 			//Set Firefox Headless mode as TRUE
-			FirefoxBinary firefoxBinary = new FirefoxBinary();
-			firefoxBinary.addCommandLineOptions("--headless");
 			System.setProperty("webdriver.gecko.driver", properties.getProperty("GeckoDriverPath"));
-			DesiredCapabilities capabilities_firefox = DesiredCapabilities.firefox();
-			capabilities_firefox.setCapability("marionette", true);
-			capabilities_firefox.setCapability("acceptInsecureCerts", true);
-			capabilities_firefox.setCapability("assume_untrusted_cert_issuer", true);
-			capabilities_firefox.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
-		    firefoxOptions.setBinary(firefoxBinary);
-		    firefoxOptions.addCapabilities(capabilities_firefox);
-		    //firefoxOptions.addTo(capabilities_firefox);
+		    firefoxOptions.setCapability("marionette", true);
+		    firefoxOptions.setCapability("acceptInsecureCerts", true);
+		    firefoxOptions.setCapability("assume_untrusted_cert_issuer", true);
+		    firefoxOptions.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+		    firefoxOptions.setHeadless(true);
 			driver = new FirefoxDriver(firefoxOptions);
 
 			break;
@@ -111,7 +105,7 @@ public class WebDriverFactory {
 
 			System.setProperty("phantomjs.binary.path",
 			properties.getProperty("PhantomJSPath"));
-			driver = new PhantomJSDriver();
+			//driver = new PhantomJSDriver();
 			break; 
 
 			/*System.setProperty("webdriver.chrome.driver", properties.getProperty("ChromeDriverPath"));
