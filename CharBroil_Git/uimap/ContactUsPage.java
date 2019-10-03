@@ -61,7 +61,7 @@ public class ContactUsPage {
 	
 	public static final By msgError = By.xpath("//li[@class='error-msg']/ul/li/span");
 	
-	public static final By fileUploadPath = By.xpath("//input[@id='files']");
+	public static final By fileUploadPath = By.id("files");
 	
 	public static final By uploadedFileName = By.cssSelector("span.form__file-name");
 }
