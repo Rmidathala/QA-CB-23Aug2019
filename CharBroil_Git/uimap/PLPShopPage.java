@@ -11,7 +11,7 @@ public class PLPShopPage {
 	
 	//Text
 	public static final By txtHeaderProdCount = By.cssSelector("h2.page-header__title");
-	public static final By txtBreadCrumb = By.xpath("//html[@id='top']/body/div/div/div[5]/ul/li[4]");
+	public static final By txtBreadCrumb = By.xpath("//div[@id='category-dynamic-breadcrumb']/div/ul/li[4]");
 	public static final By txtFilterName = By.cssSelector("a.ais-current-refined-values--link");
 	public static final By txtProductPrice = By.xpath("//div[@class='algolia-result--result-wrapper']/a/div/div[3]/div/div/span[1]");
 	
