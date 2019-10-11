@@ -2619,8 +2619,7 @@ public class HomePageComponents extends ReusableLibrary {
 
 					report.updateTestLog("Find A Part Page", "Add to cart button is clicked", Status.PASS);
 					if (driver.findElement(HomePage.lblAddToCartSuccessMsg).isDisplayed()) {
-						String str = driver.findElement(HomePage.lblAddToCartSuccessMsg).getText();
-						report.updateTestLog("Shopping Cart", str, Status.PASS);
+						report.updateTestLog("Shopping Cart", "Item added to shopping Cart", Status.PASS);
 						if (driver.findElement(HomePage.lnkGuidesSection).isDisplayed()) {
 							report.updateTestLog("Find A Part page",
 									"Guide and Manual section link is displayed as expected", Status.PASS);
