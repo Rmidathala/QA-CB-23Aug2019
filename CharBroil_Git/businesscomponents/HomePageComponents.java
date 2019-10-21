@@ -2713,5 +2713,65 @@ public class HomePageComponents extends ReusableLibrary {
 			
 		}
 	}
+	
+	/*
+	 * Method for validating product registration Form
+	 */
+	public void validateProductRegistrationForm() {
+		try {
+			String mainWindowHandle = driver.getWindowHandle();
+			String firstname = dataTable.getData("General_Data", "FirstName");
+			String lastname = dataTable.getData("General_Data", "LastName");
+			String email = dataTable.getData("General_Data", "Email");
+			String address1 = dataTable.getData("General_Data", "Address1");
+			String zip = dataTable.getData("General_Data", "Zip");
+			String city = dataTable.getData("General_Data", "City");
+			String country = dataTable.getData("General_Data", "Country");
+			String state = dataTable.getData("General_Data", "State");
+			String telephone = dataTable.getData("General_Data", "Telephone");
+			String model = dataTable.getData("General_Data", "ModelNo");
+			String purchaseAmt = dataTable.getData("General_Data", "PurchaseAmount");
+			String purchaseDate = dataTable.getData("General_Data", "PurchaseDate");
+			String serialNo = dataTable.getData("General_Data", "SerialNo");
+			String purchaseLoc = dataTable.getData("General_Data", "PurchaseLoc");
+
+			wdu.waitUntilElementEnabled(HomePage.linkProductReg, 10);
+			wdu.highlightElement(HomePage.linkProductReg);
+			report.updateTestLog("Home Page", "Product Registration link is present.", Status.PASS);
+			driver.findElement(HomePage.linkProductReg).click();
+			report.updateTestLog("Home Page", "Clicked on Product Registration link.", Status.DONE);
+
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					gc.scrollToElement(ProductRegistrationPage.lblProductRegistration);
+					wdu.highlightElement(ProductRegistrationPage.lblProductRegistration);
+					report.updateTestLog("Home Page", "Product Registration label is present.", Status.PASS);
+					//driver.close();
+					driver.findElement(ProductRegistrationPage.txtBoxFirstName).sendKeys(firstname);
+					driver.findElement(ProductRegistrationPage.txtBoxLastName).sendKeys(lastname);
+					driver.findElement(ProductRegistrationPage.txtBoxEmail).sendKeys(email);
+					driver.findElement(ProductRegistrationPage.txtBoxAddress1).sendKeys(address1);
+					driver.findElement(ProductRegistrationPage.txtBoxZip).sendKeys(zip);
+					driver.findElement(ProductRegistrationPage.txtBoxCity).sendKeys(city);
+					driver.findElement(ProductRegistrationPage.drpDownCountry).sendKeys(country);
+					driver.findElement(ProductRegistrationPage.drpDownState).sendKeys(state);
+					driver.findElement(ProductRegistrationPage.txtBoxPhone).sendKeys(telephone);
+					driver.findElement(ProductRegistrationPage.txtBoxModel).sendKeys(model);
+					driver.findElement(ProductRegistrationPage.txtBoxPurchaseAmt).sendKeys(purchaseAmt);
+					driver.findElement(ProductRegistrationPage.txtBoxPurchaseDate).sendKeys(purchaseDate);
+					driver.findElement(ProductRegistrationPage.txtBoxSerialNo).sendKeys(serialNo);
+					driver.findElement(ProductRegistrationPage.drpDownPurchaseLocation).sendKeys(purchaseLoc);
+					driver.findElement(ProductRegistrationPage.btnRegisterYourProduct).click();
+					report.updateTestLog("Product registration Form", "Data entered in all fields and clicked on Register you product button", Status.PASS);
+				}
+			}
+			//driver.switchTo().window(mainWindowHandle);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateProductRegistration", "Exception is " + e, Status.FAIL);
+		}
+	}
 
 }
