@@ -276,12 +276,13 @@ public class ContactUsPageComponents extends ReusableLibrary {
 				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
 				drpDowncountry.selectByValue(country);
 
-			} else if (driver.getCurrentUrl().contains("nous-contacter")) {
+			}/* else if (driver.getCurrentUrl().contains("nous-contacter")) {
 				country = "FR";
 				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
 				drpDowncountry.selectByValue(country);
+				
 
-			} else {
+			} */else {
 				Select drpDowncountry = new Select(driver.findElement(ContactUsPage.drpDownCountry));
 				drpDowncountry.selectByValue(country);
 				commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.txtBoxStateOther), state,
@@ -316,18 +317,19 @@ public class ContactUsPageComponents extends ReusableLibrary {
 
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
 					"Contact Us Page - Submit Button");
-			/*
+			
 			
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
 					"Contact Us Page - Close pop up");
-			gc.scrollToElement(ContactUsPage.btnSubmit);
+			/*gc.scrollToElement(ContactUsPage.btnSubmit);
 
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
 					"Contact Us Page - Submit Button");
-			
-			}*/
+					
 			Thread.sleep(6000);
+			}*/
 			
+			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 20);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully",
@@ -517,12 +519,12 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			  Select(driver.findElement(ContactUsPage.drpDownCountry));
 			  drpDowncountry.selectByValue(country);
 			  
-			  } else if(driver.getCurrentUrl().contains("nous-contacter")) { country="FR";
+			  }/* else if(driver.getCurrentUrl().contains("nous-contacter")) { country="FR";
 			  Select drpDowncountry = new
 			  Select(driver.findElement(ContactUsPage.drpDownCountry));
 			  drpDowncountry.selectByValue(country);
 			  
-			  } else { Select drpDowncountry = new
+			  } */else { Select drpDowncountry = new
 			  Select(driver.findElement(ContactUsPage.drpDownCountry));
 			  drpDowncountry.selectByValue(country);
 			  commonFunctions.clearAndEnterText(driver.findElement(ContactUsPage.
@@ -565,14 +567,16 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
 					"Contact Us Page - Submit Button");
 
-			/*
+			
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
 					"Contact Us Page - Close pop up");
-			gc.scrollToElement(ContactUsPage.btnSubmit);
+			/*gc.scrollToElement(ContactUsPage.btnSubmit);
 
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
-					"Contact Us Page - Submit Button"); */
-			Thread.sleep(6000);
+					"Contact Us Page - Submit Button"); 
+			Thread.sleep(6000);*/
+			
+			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 20);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully with Valid File size",
