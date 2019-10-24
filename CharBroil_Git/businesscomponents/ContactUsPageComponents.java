@@ -329,7 +329,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			Thread.sleep(6000);
 			}*/
 			
-			Thread.sleep(20000);
+			Thread.sleep(35000);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully",
@@ -578,7 +578,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			
 			//wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 30);
 			
-			Thread.sleep(20000);
+			Thread.sleep(35000);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully with Valid File size",
