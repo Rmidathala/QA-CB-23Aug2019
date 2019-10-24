@@ -319,9 +319,9 @@ public class ContactUsPageComponents extends ReusableLibrary {
 					"Contact Us Page - Submit Button");
 			
 			
-			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
+			/*commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
 					"Contact Us Page - Close pop up");
-			/*gc.scrollToElement(ContactUsPage.btnSubmit);
+			gc.scrollToElement(ContactUsPage.btnSubmit);
 
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
 					"Contact Us Page - Submit Button");
@@ -329,7 +329,7 @@ public class ContactUsPageComponents extends ReusableLibrary {
 			Thread.sleep(6000);
 			}*/
 			
-			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 20);
+			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 30);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully",
@@ -568,15 +568,15 @@ public class ContactUsPageComponents extends ReusableLibrary {
 					"Contact Us Page - Submit Button");
 
 			
-			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
+			/*commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnClosePopUp),
 					"Contact Us Page - Close pop up");
-			/*gc.scrollToElement(ContactUsPage.btnSubmit);
+			gc.scrollToElement(ContactUsPage.btnSubmit);
 
 			commonFunctions.clickIfElementPresent(driver.findElement(ContactUsPage.btnSubmit),
 					"Contact Us Page - Submit Button"); 
 			Thread.sleep(6000);*/
 			
-			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 20);
+			wdu.waitUntilElementVisible(ContactUsPage.msgSuccess, 30);
 
 			if (driver.findElement(ContactUsPage.msgSuccess).getText().contains(successMsg)) {
 				report.updateTestLog("Verify contact us Page is submitted successfully with Valid File size",
