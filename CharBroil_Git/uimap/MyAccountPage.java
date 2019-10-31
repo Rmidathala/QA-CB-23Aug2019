@@ -39,7 +39,7 @@ public class MyAccountPage {
 	public static final By btnSaveAddressAA = By.xpath("//button[@title='Save Address']/span/span");
 	
 	
-	public static final By lblErrorMsgSameEmail = By.xpath("//*[@class='error-msg']"); //There is already an account with this email address. If you are sure that it is your email address,
+	public static final By lblErrorMsgSameEmail = By.xpath("//*[@class='error-msg']//span"); //There is already an account with this email address. If you are sure that it is your email address,
 	
 	
 	
