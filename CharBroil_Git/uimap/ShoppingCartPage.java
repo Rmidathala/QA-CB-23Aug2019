@@ -40,4 +40,7 @@ public class ShoppingCartPage {
 	public static final By lnkProducts = By.xpath("//div[@class='cart-item__title cart-item__cell']/a");
 
 	public static final By titleShoppingCart = By.xpath("//div[@class='page-title cart__page-title']/h1");
+	public static final By selectProduct1Quantity = By.xpath("(//select[@class='form__input-qty'])[1]");
+	public static final By selectProduct2Quantity = By.xpath("(//select[@class='form__input-qty'])[2]");
+	public static final By selectProduct3Quantity = By.xpath("(//select[@class='form__input-qty'])[3]");
 }

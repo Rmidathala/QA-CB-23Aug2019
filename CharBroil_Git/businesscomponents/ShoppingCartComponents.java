@@ -420,5 +420,51 @@ public class ShoppingCartComponents extends ReusableLibrary {
 	}
 
 	/*******************************************************************************************************************************************************************************/
+	public void quantityValidateCartAfterRefresh() {
 
+		driver.navigate().refresh();
+		try {
+			String qty = dataTable.getData("General_Data", "Quantity");
+
+			wdu.waitUntilElementEnabled(ShoppingCartPage.selectProduct1Quantity, 30);
+
+			//gc.selectDropDown(ShoppingCartPage.selectProductQuantity, qty);
+			Thread.sleep(7000);
+		String qty1 = gc.getFirstSelectedValue(ShoppingCartPage.selectProduct1Quantity);
+		String qty2 = gc.getFirstSelectedValue(ShoppingCartPage.selectProduct2Quantity);
+		String qty3 = gc.getFirstSelectedValue(ShoppingCartPage.selectProduct3Quantity);
+		
+		if (qty1.contains(qty)) {
+			report.updateTestLog("Validate quantity for 1st product",
+					"Quantity for 1st product is 1", Status.PASS);
+		}
+
+		else {
+			report.updateTestLog("Validate quantity for 1st product",
+					"Quantity for 1st product is not 1", Status.FAIL);
+		}
+		if (qty2.contains(qty)) {
+			report.updateTestLog("Validate quantity for 2nd product",
+					"Quantity for 2nd product is 1", Status.PASS);
+		}
+
+		else {
+			report.updateTestLog("Validate quantity for 2nd product",
+					"Quantity for 2nd product is not 1", Status.FAIL);
+		}
+		if (qty3.contains(qty)) {
+			report.updateTestLog("Validate quantity for 3rd product",
+					"Quantity for 3rd product is 1", Status.PASS);
+		}
+
+		else {
+			report.updateTestLog("Validate quantity for 3rd product",
+					"Quantity for 3rd product is not 1", Status.FAIL);
+		}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validating quantity for 3 products", "Exception is " + e, Status.FAIL);
+		}
+	}
 }
