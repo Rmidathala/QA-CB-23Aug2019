@@ -138,9 +138,9 @@ public class ProductDetailsPageComponents extends ReusableLibrary {
 
 				gc.scrollToElement(CheckOutPage.btnProceedToCheckout);
 				driver.findElement(CheckOutPage.btnProceedToCheckout).click();
-				//wdu.waitUntilElementEnabled(CheckOutPage.txtFirstname, 30);
-				gc.scrollToElement(CheckOutPage.txtFirstname);
-				if (driver.findElement(CheckOutPage.txtFirstname).isDisplayed()) {
+				wdu.waitUntilElementEnabled(CheckOutPage.txtCheckoutReview, 30);
+				//gc.scrollToElement(CheckOutPage.txtFirstname);
+				if (driver.findElement(CheckOutPage.txtCheckoutReview).isDisplayed()) {
 					report.updateTestLog("Proceed to Check out", "Proceed to checkout done", Status.PASS);
 				}
 

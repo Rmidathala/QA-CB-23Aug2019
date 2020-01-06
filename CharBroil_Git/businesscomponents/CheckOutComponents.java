@@ -12,6 +12,7 @@ import supportlibraries.ScriptHelper;
 import uimap.CheckOutPage;
 import uimap.HomePage;
 import uimap.MyAccountPage;
+import uimap.PLPShopPage;
 import uimap.ProductDetailsPage;
 import uimap.ShoppingCartPage;
 
@@ -615,6 +616,7 @@ public class CheckOutComponents extends ReusableLibrary {
 				}
 
 				wdu.waitUntilPageReadyStateComplete(20);
+				
 				if (wdu.objectExists(ShoppingCartPage.shopicon)) {
 					report.updateTestLog("Clear ShoppingCart", "Shopping Cart is Empty", Status.PASS);
 				} else {

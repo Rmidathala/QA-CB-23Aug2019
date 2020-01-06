@@ -1803,9 +1803,11 @@ public class HomePageComponents extends ReusableLibrary {
 					driver.switchTo().window(handle);
 					gc.scrollToElement(prodRegistrationHeader);
 					wdu.highlightElement(prodRegistrationHeader);
+					Thread.sleep(5000);
+			if (driver.findElement(By.xpath("//*[@class='col-lg-12 col-md-12 col-sm-12 col-xs-12']/h1")).isDisplayed())
 					report.updateTestLog("Product registration link validation",
 							"Product Registration label is present.", Status.PASS);
-					driver.close();
+					//driver.close();
 				}
 			}
 			driver.switchTo().window(mainWindowHandle);
@@ -2247,8 +2249,9 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			String item = dataTable.getData("General_Data", "ProductModel");
 			Browser browser = driver.getTestParameters().getBrowser();
-
+			
 			driver.findElement(HomePage.txtSearchItem).sendKeys(item);
+			driver.findElement(HomePage.txtSearchItem).sendKeys(Keys.ENTER);
 			if (browser.equals(Browser.INTERNET_EXPLORER)) {
 				Robot robot = new Robot();
 				robot.keyPress(KeyEvent.VK_ENTER);
@@ -2463,12 +2466,17 @@ public class HomePageComponents extends ReusableLibrary {
 
 			wdu.waitUntilElementLocated(HomePage.linkFooterContactSendEmailEU, 10);
 			gc.scrollToElement(HomePage.linkFooterContactSendEmailEU);
-			if (driver.findElement(HomePage.linkFooterContactSendEmailEU).getText()
+			/*if (driver.findElement(HomePage.linkFooterContactSendEmailEU).getText()
 					.equalsIgnoreCase(expectedSendEmailText))
 				report.updateTestLog("Footer contact validation", "Send An Email option is present", Status.PASS);
 			else
-				report.updateTestLog("Footer contact validation", "Send An Email option is not present", Status.FAIL);
-
+				report.updateTestLog("Footer contact validation", "Send An Email option is not present", Status.FAIL);*/
+			driver.findElement(HomePage.linkFooterContactSendEmailEU).click();
+			if (driver.getCurrentUrl().contains("contact-us"))
+				report.updateTestLog("Footer contact validation", "Navigated to contact us page when clicked on Send An Email option ", Status.PASS);
+			else
+				report.updateTestLog("Footer contact validation", "Not Navigated to contact us page when clicked on Send An Email option", Status.FAIL);
+			driver.navigate().back();
 			driver.findElement(HomePage.linkFooterImprintEU).click();
 			report.updateTestLog("Footer contact validation", "Clicked on imprint option in footer contacr section.",
 					Status.DONE);
@@ -2771,6 +2779,79 @@ public class HomePageComponents extends ReusableLibrary {
 		} catch (Exception e) {
 			e.printStackTrace();
 			report.updateTestLog("Exception in validateProductRegistration", "Exception is " + e, Status.FAIL);
+		}
+	}
+	public void acceptCookiesCE()	{
+		try {
+			Thread.sleep(5000);
+				driver.findElement(HomePage.btnAcceptCookiesCE).click();			
+				Thread.sleep(5000);
+			
+		}	catch (Exception e) {
+			report.updateTestLog("Exception in acceptCookies", "Error is - "+e.getMessage(), Status.FAIL);
+		}
+	}
+	
+	/*
+	 * Method for searching an product in Home Page
+	 */
+	public void searchProductInHomePageCE() {
+		try {
+			
+			/*Thread.sleep(5000);
+			driver.findElement(HomePage.btnAcceptCookiesCE).click();
+			Thread.sleep(5000);*/
+			
+			String searchText = dataTable.getData("General_Data", "SearchTextInHome");
+			
+			wdu.highlightElement(HomePage.textsearchCE);
+			report.updateTestLog("Home Page", "Search textbox is present inside home page.", Status.PASS);
+			driver.findElement(HomePage.textsearchCE).clear();
+			driver.findElement(HomePage.textsearchCE).sendKeys(searchText);
+			Thread.sleep(5000);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in searchProductInHomePage", "Exception is " + e, Status.FAIL);
+		}
+	}
+	
+	/*
+	 * Method for validating invalid product search result in home page
+	 */
+	
+	public void validateInvalidProdSearchInHomeCE() {
+		try {
+			String searchText = dataTable.getData("General_Data", "SearchTextInHome");
+			String expectedResult = "No products for query \"" + searchText + "\"";
+			wdu.waitUntilElementVisible(HomePage.txtSearchResult, 10);
+			if (driver.findElement(HomePage.txtSearchResult).getText().equalsIgnoreCase(expectedResult))
+				report.updateTestLog("Home Page", "Proper message displayed against search.", Status.PASS);
+			else
+				report.updateTestLog("Home Page", "Proper message not displayed against search.", Status.FAIL);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateInvalidProdSearchInHome", "Exception is " + e, Status.FAIL);
+		}
+	}
+	
+	/*
+	 * Method to validate the help link from home page
+	 */
+	
+	public void validateHelpLinkCE() {
+		try {
+			driver.findElement(HomePage.linkProductHelpCE).click();
+			if (driver.getCurrentUrl().contains("/help")) {
+				report.updateTestLog("Home Page", "Help link working correctly", Status.PASS);
+			}
+			else
+				report.updateTestLog("Home Page", "Help link is not working correctly", Status.FAIL);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateSupportPages", "Exception is " + e, Status.FAIL);
 		}
 	}
 

@@ -226,4 +226,13 @@ public class HomePage {
 	public static final By linkDataSubjectAccessRequest = By.xpath("//a[text()='Data Subject Access Request']");
 
 	public static final By lnkCatetoryLaborDaySavings = By.xpath("//a[@class='ais-hierarchical-menu--link']");
+	
+	//CE
+	public static final By textsearchCE = By.xpath("(//input[@id='search'])[1]");
+	public static final By btnAcceptCookiesCE = By.xpath("//*[@class='optanon-allow-all accept-cookies-button']");
+	public static final By linkProductHelpCE = By.xpath("//div[@class='footer__list']/ul/li/a[text()='Product Help']");
+	public static final By linkHelpCE = By.xpath("//*[@class='nav-item nav-mega-right dropdown menu-large']");
+	public static final By textHelpTitle = By.xpath("//*[@class='page-title']");
+	
+	
 }

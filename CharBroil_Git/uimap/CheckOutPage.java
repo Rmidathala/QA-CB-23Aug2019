@@ -13,6 +13,7 @@ public class CheckOutPage {
 	public static final By txtaddress2 = By.xpath("//*[@id='billing:street2']");
 	public static final By txtZip = By.xpath("//*[@id='billing:postcode']");
 	public static final By txtCity = By.xpath("//*[@id='billing:city']");
+	public static final By txtCheckoutReview = By.xpath("//*[@class='form__title step-title']");
 	
 	public static final By txtCountry = By.xpath("//*[@id='billing:country_id']");
 	

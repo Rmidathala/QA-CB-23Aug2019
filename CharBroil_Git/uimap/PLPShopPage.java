@@ -24,5 +24,7 @@ public class PLPShopPage {
 	
 	public static final By breadcrumbList = By.xpath("//*[@class='breadcrumbs__list']");
 	
+	public static final By buttonClosePopUp = By.xpath("//*[@id='button2']");
+	
 	
 }
