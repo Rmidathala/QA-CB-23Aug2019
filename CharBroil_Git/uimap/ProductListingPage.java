@@ -56,8 +56,8 @@ public class ProductListingPage {
 	public static final By lblAccessoriesLinkForCountries = By.xpath("((//ul[@class='dropdown-menu megamenu row'])[1]/div[2]/ul/li/a)[1]");
 
 	public static final By lblProductsMainMenuDiffIcons = By.cssSelector("div.shopmenu > div >div");
-	public static final By lblRecipePageHeader = By.cssSelector("div.rightinner > div:nth-child(3)");
-	
+	//public static final By lblRecipePageHeader = By.cssSelector("div.rightinner > div:nth-child(3)");
+	public static final By lblRecipePageHeader = By.xpath("//*[@class='rightinner__title']");
 	
 	//********************************************** CB EU 08/03 *******************************************************************************/	
 	

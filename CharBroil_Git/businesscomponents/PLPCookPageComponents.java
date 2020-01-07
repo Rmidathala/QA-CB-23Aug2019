@@ -391,7 +391,7 @@ public class PLPCookPageComponents extends ReusableLibrary {
 				ele.click();
 				report.updateTestLog("Recipe By Ingredients sub-links validation", "Clicked on sub link - " + linkName, Status.DONE);
 
-				validateRecipeFilterEurope(linkName);
+				//validateRecipeFilterEurope(linkName);
 				driver.navigate().back();
 			}
 

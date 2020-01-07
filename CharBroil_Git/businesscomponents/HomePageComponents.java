@@ -8,6 +8,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 import com.cognizant.framework.Status;
 import com.cognizant.framework.selenium.Browser;
 import com.cognizant.framework.selenium.WebDriverUtil;
@@ -1198,8 +1200,8 @@ public class HomePageComponents extends ReusableLibrary {
 			String AppURL = properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.com")) {
 
-				footerPintrestValidation();
-				footerTwitterValidation();
+				//footerPintrestValidation();
+				//footerTwitterValidation();
 				footerFacebookValidation();
 				footerInstagramValidation();
 				footerYoutubeValidation();
@@ -1796,7 +1798,14 @@ public class HomePageComponents extends ReusableLibrary {
 			driver.findElement(HomePage.linkProductRegForCountries).click();
 			Thread.sleep(2000);
 			report.updateTestLog("Home Page", "Clicked on Product Registration link.", Status.DONE);
-
+			
+			if (driver.getCurrentUrl().contains("product-registration"))
+				report.updateTestLog("Product registration link validation",
+						"Navigated to prodcut registration page", Status.PASS);
+			else
+				report.updateTestLog("Product registration link validation",
+						"Not navigated to prodcut registration page", Status.FAIL);
+/*
 			String mainWindowHandle = driver.getWindowHandle();
 			for (String handle : driver.getWindowHandles()) {
 				if (!handle.equals(mainWindowHandle)) {
@@ -1810,7 +1819,7 @@ public class HomePageComponents extends ReusableLibrary {
 					//driver.close();
 				}
 			}
-			driver.switchTo().window(mainWindowHandle);
+			driver.switchTo().window(mainWindowHandle);*/
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -2375,7 +2384,7 @@ public class HomePageComponents extends ReusableLibrary {
 					"Clicked on Shop All Charcoal Grills button.", Status.DONE);
 			validateBreadcrumbEU(btnText);
 			driver.navigate().back();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			// Validate Electric Grills button in A Grill for every Griller section
 			wdu.waitUntilElementEnabled(HomePage.linkGrillForEveryGrillerElectricEU, 10);
@@ -2392,7 +2401,7 @@ public class HomePageComponents extends ReusableLibrary {
 					"Clicked on Shop All Electric Grills button.", Status.DONE);
 			validateBreadcrumbEU(btnText);
 			driver.navigate().back();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			// Validate Gas Grills button in A Grill for every Griller section
 			wdu.waitUntilElementEnabled(HomePage.linkGrillForEveryGrillerGasEU, 10);
@@ -2409,7 +2418,7 @@ public class HomePageComponents extends ReusableLibrary {
 					"Clicked on Shop All Gas Grills button.", Status.DONE);
 			validateBreadcrumbEU(btnText);
 			driver.navigate().back();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			// Validate Portable Grills button in A Grill for every Griller section
 			wdu.waitUntilElementEnabled(HomePage.linkGrillForEveryGrillerPortableEU, 10);
@@ -2426,7 +2435,7 @@ public class HomePageComponents extends ReusableLibrary {
 					"Clicked on Shop All Portable Grills button.", Status.DONE);
 			validateBreadcrumbEU(btnText);
 			driver.navigate().back();
-			driver.navigate().back();
+			//driver.navigate().back();
 
 			// Validate Smokers Grills button in A Grill for every Griller section
 			wdu.waitUntilElementEnabled(HomePage.linkGrillForEveryGrillerSmokersEU, 10);
