@@ -1214,16 +1214,17 @@ public class ProductDetailsPageComponents extends ReusableLibrary {
 			String deURL = dataTable.getData("General_Data", "URL_DE");
 			String dkURL = dataTable.getData("General_Data", "URL_DK");
 
-			String AppURL = properties.getProperty("ApplicationUrl");
-			if (AppURL.contains("http://www.charbroil.eu")) {
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
+			if (AppURL.contains("https://www.charbroil.eu")) {
 				driver.get(euURL);
 			}
 
-			else if (AppURL.contains("http://www.charbroil.fr")) {
+			else if (AppURL.contains("https://www.charbroil.fr")) {
 				driver.get(frURL);
-			} else if (AppURL.contains("http://www.charbroil.de")) {
+			} else if (AppURL.contains("https://www.charbroil.de")) {
 				driver.get(deURL);
-			} else if (AppURL.contains("http://www.charbroil.dk")) {
+			} else if (AppURL.contains("https://www.charbroil.dk")) {
 				driver.get(dkURL);
 			}
 

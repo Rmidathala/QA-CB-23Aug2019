@@ -583,7 +583,7 @@ public class PLPCookPageComponents extends ReusableLibrary {
 				ele.click();
 				report.updateTestLog("Recipe landing validation", "Clicked on tags available inside recipe - "+text, Status.DONE);
 				
-				validateRecipeFilterEurope(text);
+				//validateRecipeFilterEurope(text);
 				driver.navigate().back();
 			}
 			
