@@ -1738,22 +1738,22 @@ public class HomePageComponents extends ReusableLibrary {
 			 * "Contact us header is present. Showing as - "+header, Status.PASS);
 			 */
 			currUrl = driver.getCurrentUrl();
-			String AppURL = properties.getProperty("ApplicationUrl");
-			if (AppURL.contains("charbroil.com"))
-				expectedUrl = "charbroil.eu/contact-us/";
-			else if (AppURL.contains("charbroil.eu")) {
+			//String AppURL = properties.getProperty("ApplicationUrl");
+			/*if (AppURL.contains("charbroil.com"))
+				expectedUrl = "charbroil.eu/contact-us/";*/
+			 if (currUrl.contains("charbroil.eu")) {
 				wdu.waitUntilElementLocated(HomePage.linkContactUsHeaderEU, 5);
 				header = driver.findElement(HomePage.linkContactUsHeaderEU).getText();
 				expectedUrl = "charbroil.eu/contact-us/";
-			} else if (AppURL.contains("charbroil.fr")) {
+			} else if (currUrl.contains("charbroil.fr")) {
 				wdu.waitUntilElementLocated(HomePage.linkContactUsHeaderFR, 5);
 				header = driver.findElement(HomePage.linkContactUsHeaderFR).getText();
 				expectedUrl = "charbroil.fr/nous-contacter/";
-			} else if (AppURL.contains("charbroil.de")) {
+			} else if (currUrl.contains("charbroil.de")) {
 				wdu.waitUntilElementLocated(HomePage.linkContactUsHeaderDE, 5);
 				header = driver.findElement(HomePage.linkContactUsHeaderDE).getText();
 				expectedUrl = "charbroil.de/kontakt/";
-			} else if (AppURL.contains("charbroil.dk")) {
+			} else if (currUrl.contains("charbroil.dk")) {
 				wdu.waitUntilElementLocated(HomePage.linkContactUsHeaderDK, 5);
 				header = driver.findElement(HomePage.linkContactUsHeaderDK).getText();
 				expectedUrl = "charbroil.dk/kontakt-os/";
@@ -1781,8 +1781,10 @@ public class HomePageComponents extends ReusableLibrary {
 	 */
 	public void validateProductRegistrationEU() {
 		try {
+			
 			By prodRegistrationHeader = null;
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu"))
 				prodRegistrationHeader = ProductRegistrationPage.lblProductRegistrationEU;
 			else if (AppURL.contains("charbroil.fr"))
@@ -1799,29 +1801,23 @@ public class HomePageComponents extends ReusableLibrary {
 			Thread.sleep(2000);
 			report.updateTestLog("Home Page", "Clicked on Product Registration link.", Status.DONE);
 			
-			if (driver.getCurrentUrl().contains("product-registration"))
-				report.updateTestLog("Product registration link validation",
-						"Navigated to prodcut registration page", Status.PASS);
-			else
-				report.updateTestLog("Product registration link validation",
-						"Not navigated to prodcut registration page", Status.FAIL);
-/*
+	
 			String mainWindowHandle = driver.getWindowHandle();
 			for (String handle : driver.getWindowHandles()) {
 				if (!handle.equals(mainWindowHandle)) {
 					driver.switchTo().window(handle);
 					gc.scrollToElement(prodRegistrationHeader);
 					wdu.highlightElement(prodRegistrationHeader);
-					Thread.sleep(5000);
-			if (driver.findElement(By.xpath("//*[@class='col-lg-12 col-md-12 col-sm-12 col-xs-12']/h1")).isDisplayed())
 					report.updateTestLog("Product registration link validation",
 							"Product Registration label is present.", Status.PASS);
-					//driver.close();
+					driver.close();
 				}
 			}
-			driver.switchTo().window(mainWindowHandle);*/
+			driver.switchTo().window(mainWindowHandle);
 
-		} catch (Exception e) {
+		
+			}
+		catch (Exception e) {
 			e.printStackTrace();
 			report.updateTestLog("Exception in validateProductRegistration", "Exception is " + e.getMessage(),
 					Status.FAIL);
@@ -1979,7 +1975,8 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			String currUrl = "", expectedUrl = "";
 
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu"))
 				expectedUrl = "charbroil.eu/shop/";
 			else if (AppURL.contains("charbroil.fr"))
@@ -2021,7 +2018,8 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			String currUrl = "", expectedUrl = "";
 
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL =driver.getCurrentUrl(); 
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu"))
 				expectedUrl = "charbroil.eu/recipes";
 			else if (AppURL.contains("charbroil.fr"))
@@ -2060,7 +2058,8 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			String currUrl = "", expectedUrl = "";
 
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu"))
 				expectedUrl = "charbroil.eu/tips";
 			else if (AppURL.contains("charbroil.fr"))
@@ -2099,7 +2098,8 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			String currUrl = "", expectedUrl = "";
 
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu"))
 				expectedUrl = "charbroil.eu/help/";
 			else if (AppURL.contains("charbroil.fr"))
@@ -2171,7 +2171,8 @@ public class HomePageComponents extends ReusableLibrary {
 			String searchResult = "", expectedProductTab = "", expectedRecipesTab = "", expectedTipsTab = "",
 					expectedSupportTab = "";
 
-			String AppURL = properties.getProperty("ApplicationUrl");
+			String AppURL = driver.getCurrentUrl();
+					//properties.getProperty("ApplicationUrl");
 			if (AppURL.contains("charbroil.eu")) {
 				expectedProductTab = "Products";
 				expectedRecipesTab = "Recipes";
@@ -2483,6 +2484,12 @@ public class HomePageComponents extends ReusableLibrary {
 			driver.findElement(HomePage.linkFooterContactSendEmailEU).click();
 			if (driver.getCurrentUrl().contains("contact-us"))
 				report.updateTestLog("Footer contact validation", "Navigated to contact us page when clicked on Send An Email option ", Status.PASS);
+			else if (driver.getCurrentUrl().contains("nous-contacter"))
+				report.updateTestLog("Footer contact validation", "Navigated to contact us page when clicked on Send An Email option ", Status.PASS);
+			else if (driver.getCurrentUrl().contains("kontakt"))
+				report.updateTestLog("Footer contact validation", "Navigated to contact us page when clicked on Send An Email option ", Status.PASS);
+			else if (driver.getCurrentUrl().contains("kontakt-os"))
+				report.updateTestLog("Footer contact validation", "Navigated to contact us page when clicked on Send An Email option ", Status.PASS);
 			else
 				report.updateTestLog("Footer contact validation", "Not Navigated to contact us page when clicked on Send An Email option", Status.FAIL);
 			driver.navigate().back();
@@ -2792,8 +2799,20 @@ public class HomePageComponents extends ReusableLibrary {
 	}
 	public void acceptCookiesCE()	{
 		try {
+			String appURL = driver.getCurrentUrl();
 			Thread.sleep(5000);
-				driver.findElement(HomePage.btnAcceptCookiesCE).click();			
+			if (appURL.contains("charbroil.eu")) {
+				driver.findElement(HomePage.btnAcceptCookiesCE).click();	
+			}
+			else if (appURL.contains("charbroil.fr")) {
+				driver.findElement(HomePage.btnAcceptCookiesFR).click();	
+			}
+			else if (appURL.contains("charbroil.de")) {
+				driver.findElement(HomePage.btnAcceptCookiesDE).click();	
+			}
+			else if (appURL.contains("charbroil.dk")) {
+				driver.findElement(HomePage.btnAcceptCookiesDK).click();	
+			}
 				Thread.sleep(5000);
 			
 		}	catch (Exception e) {

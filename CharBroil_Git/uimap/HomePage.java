@@ -227,12 +227,20 @@ public class HomePage {
 
 	public static final By lnkCatetoryLaborDaySavings = By.xpath("//a[@class='ais-hierarchical-menu--link']");
 	
-	//CE
+	//EU
 	public static final By textsearchCE = By.xpath("(//input[@id='search'])[1]");
 	public static final By btnAcceptCookiesCE = By.xpath("//*[@class='optanon-allow-all accept-cookies-button']");
 	public static final By linkProductHelpCE = By.xpath("//div[@class='footer__list']/ul/li/a[text()='Product Help']");
 	public static final By linkHelpCE = By.xpath("//*[@class='nav-item nav-mega-right dropdown menu-large']");
 	public static final By textHelpTitle = By.xpath("//*[@class='page-title']");
 	
+	//FR
+	public static final By btnAcceptCookiesFR = By.xpath("//a[@class='optanon-allow-all']");
+	
+	//DE
+	public static final By btnAcceptCookiesDE = By.xpath("//a[@class='optanon-allow-all']");
+	
+	//DK
+	public static final By btnAcceptCookiesDK = By.xpath("//a[@class='optanon-allow-all']");
 	
 }
