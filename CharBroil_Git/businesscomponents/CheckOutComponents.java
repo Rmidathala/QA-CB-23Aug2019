@@ -529,14 +529,14 @@ public class CheckOutComponents extends ReusableLibrary {
 
 			Thread.sleep(7000);
 
-			wdu.waitUntilElementEnabled(CheckOutPage.btnContinueCheckout, 30);
+			wdu.waitUntilElementEnabled(CheckOutPage.btnContinueCheckout, 50);
 
 			Thread.sleep(10000);
 
 			driver.findElement(CheckOutPage.btnContinueCheckout).click();
 
 			wdu.waitUntilPageReadyStateComplete(20);
-			wdu.waitUntilElementEnabled(CheckOutPage.lblShippingMethod, 30);
+			wdu.waitUntilElementEnabled(CheckOutPage.lblShippingMethod, 40);
 
 			if (driver.findElement(CheckOutPage.lblShippingMethod).isDisplayed()) {
 				report.updateTestLog("Navigation to Shipping Method", "Navigation to shipping method is successful",
