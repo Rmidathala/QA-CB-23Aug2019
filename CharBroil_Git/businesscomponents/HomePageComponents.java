@@ -2882,5 +2882,371 @@ public class HomePageComponents extends ReusableLibrary {
 			report.updateTestLog("Exception in validateSupportPages", "Exception is " + e, Status.FAIL);
 		}
 	}
+	
+	/*
+	 * Method for validate flag navigations from home page FR
+	 */
+	public void validateFlagNavigationFR() {
+		try {
+			String currUrl = "", mainWindowHandle = "";
 
-}
+			wdu.waitUntilElementEnabled(HomePage.linkHomeFlagDropdown, 10);
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			report.updateTestLog("Home page validation", "Hover on flag menu dropdown", Status.DONE);
+
+			// Validate flag "DANSK" link
+			driver.findElement(HomePage.linkFlagDansk).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on DANSK link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.dk")) {
+							report.updateTestLog("Flag DANSK link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag DANSK link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "DEUTSCH" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagDeutsch).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on DEUTSCH link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.de")) {
+							report.updateTestLog("Flag DEUTSCH link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag DEUTSCH link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "ENGLISH" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagEUInFRSite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on ENGLISH link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.eu")) {
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "USA" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagUSA).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on USA link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.com")) {
+							report.updateTestLog("Flag USA link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag USA link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateFlagNavigation", "Exception is " + e.getMessage(), Status.FAIL);
+		}
+	}
+	/*
+	 * Method for validate flag navigations from home page DE
+	 */
+	public void validateFlagNavigationDE() {
+		try {
+			String currUrl = "", mainWindowHandle = "";
+
+			wdu.waitUntilElementEnabled(HomePage.linkHomeFlagDropdown, 10);
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			report.updateTestLog("Home page validation", "Hover on flag menu dropdown", Status.DONE);
+
+			// Validate flag "DANSK" link
+			driver.findElement(HomePage.linkFlagDKInDESite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on DANSK link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.dk")) {
+							report.updateTestLog("Flag DANSK link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag DANSK link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "FR" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagFRInDESite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on FR link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.fr")) {
+							report.updateTestLog("Flag FRANCIS link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag FRANCIS link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "ENGLISH" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagEUInDESite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on ENGLISH link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.eu")) {
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "USA" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagUSA).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on USA link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.com")) {
+							report.updateTestLog("Flag USA link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag USA link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateFlagNavigation", "Exception is " + e.getMessage(), Status.FAIL);
+		}
+	}
+	/*
+	 * Method for validate flag navigations from home page DK
+	 */
+	public void validateFlagNavigationDK() {
+		try {
+			String currUrl = "", mainWindowHandle = "";
+
+			wdu.waitUntilElementEnabled(HomePage.linkHomeFlagDropdown, 10);
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			report.updateTestLog("Home page validation", "Hover on flag menu dropdown", Status.DONE);
+
+			// Validate flag "DE" link
+			driver.findElement(HomePage.linkFlagDEInDKSite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on DE link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.de")) {
+							report.updateTestLog("Flag DE link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag DE link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "FR" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagFRInDKSite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on FR link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.fr")) {
+							report.updateTestLog("Flag FRANCIS link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag FRANCIS link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "ENGLISH" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagEUInDKSite).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on ENGLISH link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.eu")) {
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Navigated to correct URL - " + currUrl, Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag ENGLISH link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+
+			// Validate flag "USA" link
+			wdu.mouseHoverJScript(driver.findElement(HomePage.linkHomeFlagDropdown));
+			Thread.sleep(1000);
+			driver.findElement(HomePage.linkFlagUSA).click();
+			Thread.sleep(2000);
+			report.updateTestLog("Flag link validation", "Clicked on USA link.", Status.DONE);
+			mainWindowHandle = driver.getWindowHandle();
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(mainWindowHandle)) {
+					driver.switchTo().window(handle);
+					for (int i = 0; i < 5; i++) {
+						currUrl = driver.getCurrentUrl();
+						if (currUrl.contains("charbroil.com")) {
+							report.updateTestLog("Flag USA link validation", "Navigated to correct URL - " + currUrl,
+									Status.PASS);
+							break;
+						} else if (i == 4)
+							report.updateTestLog("Flag USA link validation",
+									"Not navigated to correct URL. Opened url - " + currUrl, Status.FAIL);
+						else
+							Thread.sleep(2000);
+					}
+					driver.close();
+				}
+			}
+			driver.switchTo().window(mainWindowHandle);
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validateFlagNavigation", "Exception is " + e.getMessage(), Status.FAIL);
+		}
+	}
+	}

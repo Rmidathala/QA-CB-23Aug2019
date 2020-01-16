@@ -236,11 +236,18 @@ public class HomePage {
 	
 	//FR
 	public static final By btnAcceptCookiesFR = By.xpath("//a[@class='optanon-allow-all']");
+	public static final By linkFlagEUInFRSite = By.xpath("(//div[@id='dropdownMenulinks']/a[3])[1]");
 	
 	//DE
 	public static final By btnAcceptCookiesDE = By.xpath("//a[@class='optanon-allow-all']");
+	public static final By linkFlagEUInDESite = By.xpath("(//div[@id='dropdownMenulinks']/a[2])[1]");
+	public static final By linkFlagFRInDESite = By.xpath("(//div[@id='dropdownMenulinks']/a[3])[1]");
+	public static final By linkFlagDKInDESite = By.xpath("(//div[@id='dropdownMenulinks']/a[1])[1]");
 	
 	//DK
 	public static final By btnAcceptCookiesDK = By.xpath("//a[@class='optanon-allow-all']");
+	public static final By linkFlagEUInDKSite = By.xpath("(//div[@id='dropdownMenulinks']/a[2])[1]");
+	public static final By linkFlagFRInDKSite = By.xpath("(//div[@id='dropdownMenulinks']/a[3])[1]");
+	public static final By linkFlagDEInDKSite = By.xpath("(//div[@id='dropdownMenulinks']/a[1])[1]");
 	
 }
