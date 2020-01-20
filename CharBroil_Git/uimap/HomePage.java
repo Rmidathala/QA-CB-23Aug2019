@@ -250,4 +250,17 @@ public class HomePage {
 	public static final By linkFlagFRInDKSite = By.xpath("(//div[@id='dropdownMenulinks']/a[3])[1]");
 	public static final By linkFlagDEInDKSite = By.xpath("(//div[@id='dropdownMenulinks']/a[1])[1]");
 	
+	//WHY CHARBROIL
+	public static final By heroLogo=By.xpath("//img[@class='why-hero__logo']");
+	public static final By drpdown1=By.xpath("(//div[@class='why-drawer__title'])[1]");
+	public static final By drpdown2=By.xpath("(//div[@class='why-drawer__title'])[2]");
+	public static final By drpdown3=By.xpath("(//div[@class='why-drawer__title'])[3]");
+	public static final By drpdown4=By.xpath("(//div[@class='why-drawer__title'])[4]");
+	
+	public static final By textcontentOfDropdown1=By.xpath("//div[@class='why-about__text why--text']");
+	public static final By textcontentOfDropdown2=By.xpath("//h1[@class='why-how__headline']");
+	public static final By textcontentOfDropdown3=By.xpath("(//div[@class='why-better__text why--text'])[1]");
+	public static final By textcontentOfDropdown4=By.xpath("(//h1[@class='why--headline'])[4]");
+	
+	
 }

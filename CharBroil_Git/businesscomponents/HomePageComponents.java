@@ -3249,4 +3249,52 @@ public class HomePageComponents extends ReusableLibrary {
 			report.updateTestLog("Exception in validateFlagNavigation", "Exception is " + e.getMessage(), Status.FAIL);
 		}
 	}
+	public void validateWhyCharbroil() {
+		try {
+			if (driver.findElement(HomePage.heroLogo).isDisplayed())
+				report.updateTestLog("Hero logo validation", 
+						"Hero Logo is displayed " ,Status.PASS);
+			else
+				report.updateTestLog("Hero logo validation", 
+						"Hero Logo is not displayed " ,Status.FAIL);
+			
+			driver.findElement(HomePage.drpdown1).click();
+			if(driver.findElement(HomePage.textcontentOfDropdown1).isDisplayed())
+				report.updateTestLog("Dropdown 1 working validation", 
+						"Dropdown 1 is working fine -First content text is displayed " ,Status.PASS);
+			else
+				report.updateTestLog("Dropdown 1 working validation", 
+						"Dropdown 1 is not working fine -First content text is not displayed " ,Status.FAIL);
+			Thread.sleep(3000);			
+			driver.findElement(HomePage.drpdown2).click();
+			
+			if(driver.findElement(HomePage.textcontentOfDropdown2).isDisplayed())
+				report.updateTestLog("Dropdown 2 working validation", 
+						"Dropdown 2 is working fine -First content text is displayed " ,Status.PASS);
+			else
+				report.updateTestLog("Dropdown 2 working validation", 
+						"Dropdown 2 is not working fine -First content text is not displayed " ,Status.FAIL);
+			Thread.sleep(3000);
+			driver.findElement(HomePage.drpdown3).click();
+			Thread.sleep(3000);
+			if(driver.findElement(HomePage.textcontentOfDropdown3).isDisplayed())
+				report.updateTestLog("Dropdown 3 working validation", 
+						"Dropdown 3 is working fine -First content text is displayed " ,Status.PASS);
+			else
+				report.updateTestLog("Dropdown 3 working validation", 
+						"Dropdown 3 is not working fine -First content text is not displayed " ,Status.FAIL);
+			Thread.sleep(3000);
+			driver.findElement(HomePage.drpdown4).click();
+			if(driver.findElement(HomePage.textcontentOfDropdown4).isDisplayed())
+				report.updateTestLog("Dropdown 4 working validation", 
+						"Dropdown 4 is working fine -First content text is displayed " ,Status.PASS);
+			else
+				report.updateTestLog("Dropdown 4 working validation", 
+						"Dropdown 4 is not working fine -First content text is not displayed " ,Status.FAIL);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in validating WHY CHARBROIL page", "Exception is " + e.getMessage(), Status.FAIL);
+		}
+	}
 	}
