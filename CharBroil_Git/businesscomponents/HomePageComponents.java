@@ -3297,4 +3297,16 @@ public class HomePageComponents extends ReusableLibrary {
 			report.updateTestLog("Exception in validating WHY CHARBROIL page", "Exception is " + e.getMessage(), Status.FAIL);
 		}
 	}
+	
+	public void waitForAMinuteCEContactUS() {
+		try {
+			Thread.sleep(75000);
+			report.updateTestLog("Wait for API run", 
+					"Waiting for API run after script completion " ,Status.FAIL);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in waiting", "Exception is " + e.getMessage(), Status.FAIL);
+		}
+	}
 	}
