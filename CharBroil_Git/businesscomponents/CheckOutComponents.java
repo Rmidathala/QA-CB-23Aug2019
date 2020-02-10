@@ -253,10 +253,10 @@ public class CheckOutComponents extends ReusableLibrary {
 			Thread.sleep(1000);
 			driver.findElement(CheckOutPage.txtPasswordCheckout).sendKeys(password);
 			driver.findElement(CheckOutPage.btnLoginCheckout).click();
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 			wdu.waitUntilPageReadyStateComplete(30);
+			wdu.waitUntilElementEnabled(ShoppingCartPage.lblCheckout, 50);
 			gc.scrollToElement(ShoppingCartPage.lblCheckout);
-			//wdu.waitUntilElementEnabled(ShoppingCartPage.lblCheckout, 50);
 
 			if (driver.findElement(ShoppingCartPage.lblCheckout).isDisplayed()) {
 				report.updateTestLog("login Checkout", "Login while checkout with registered user is successful",
@@ -529,7 +529,7 @@ public class CheckOutComponents extends ReusableLibrary {
 
 			Thread.sleep(7000);
 
-			wdu.waitUntilElementEnabled(CheckOutPage.btnContinueCheckout, 50);
+			wdu.waitUntilElementEnabled(CheckOutPage.btnContinueCheckout, 60);
 
 			Thread.sleep(10000);
 
