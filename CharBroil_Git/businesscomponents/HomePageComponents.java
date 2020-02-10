@@ -3302,7 +3302,7 @@ public class HomePageComponents extends ReusableLibrary {
 		try {
 			Thread.sleep(75000);
 			report.updateTestLog("Wait for API run", 
-					"Waiting for API run after script completion " ,Status.FAIL);
+					"Waiting for API run after script completion " ,Status.PASS);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
