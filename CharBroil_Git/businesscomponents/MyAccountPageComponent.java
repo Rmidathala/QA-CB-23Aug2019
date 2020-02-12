@@ -329,7 +329,8 @@ public class MyAccountPageComponent extends ReusableLibrary{
 			driver.findElement(MyAccountPage.btnRegisterNewAcc).click();
 			
 			wdu.waitUntilElementEnabled(MyAccountPage.lblErrorMsgSameEmail, 30);
-			if(driver.findElement(MyAccountPage.lblErrorMsgSameEmail).getText().contains("There is already an account with this email address"))
+			if(driver.findElement(MyAccountPage.lblErrorMsgSameEmail).isDisplayed())
+				//.getText().contains("There is already an account with this email address"
 			{
 				report.updateTestLog("Create Account Invalid user", "Account creation is not possible with same email id", Status.PASS);
 			}

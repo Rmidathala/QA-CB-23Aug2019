@@ -101,7 +101,7 @@ public class ProductDetailsPageComponents extends ReusableLibrary {
 			}
 			
 			List<WebElement> products = driver.findElements(ShoppingCartPage.lnkProducts);
-			if(products.size()==2) {
+			if(products.size()>2) {
 				report.updateTestLog("Verify Main Product and Frequently Bought Product are added to Shopping Cart", "Main Product and Frequently bought product are added to the Shopping cart", Status.PASS);
 			}
 
