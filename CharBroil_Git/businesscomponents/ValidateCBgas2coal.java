@@ -46,6 +46,7 @@ public class ValidateCBgas2coal extends ReusableLibrary {
 			validateSmallImgsOnImageSection();
 			validateBigImageOnImageSection();
 			validateShopNow();
+			Thread.sleep(5000);
 			validateExploreLink();
 		}
 		catch(Exception e){
@@ -201,7 +202,7 @@ public class ValidateCBgas2coal extends ReusableLibrary {
 					if(url.contains("https://www.charbroil.com/grills/hybrid-grills")){
 						objWebd.waitUntilElementEnabled(CBgas2coal.Productname, 30);
 						String productname = driver.findElement(CBgas2coal.Productname).getText();
-						if(productname.contains("GAS2COAL"))						
+						if(productname.contains("GAS2COAL")||productname.contains("GAS"))						
 							report.updateTestLog("Validate Shop Button Navigation under  Gas-2-CoalHybrid Grill section  ", "Navigate to correct Url and 1st product name :"
 									+ url + productname, Status.PASS);
 						else

@@ -6,15 +6,15 @@ public class ModularOutdoorKitchen {
 	
 	
 	public static final By panel1Header = By.xpath("//ul[@class='easy-to__panel-list']/li[1]/h2");
-	public static final By panel1Expand = By.xpath("//ul[@class='easy-to__panel-list']/li[1]/div[2]");
+	public static final By panel1Expand = By.xpath("(//div[@class='easy-ko__plus'])[1]");
 	//public static final By txtPanel1 = By.xpath("//p[contains(text(),'Choose between 3 or 5 burner grill options')]");
-	public static final By txtPanel1 = By.xpath("//p[contains(text(),'Choose between a 3 or 5 burner')]");
-	public static final By lnkClosePanel = By.xpath("//div[@class='easy-to__close']");
+	public static final By txtPanel1 = By.xpath("//span[contains(text(),'Choose between a 3 or 5 burner')]");
+	public static final By lnkClosePanel = By.xpath("//button[@class='easy-ko__controls-close']");
 	public static final By lblPanel2Header = By.xpath("//h2[contains(text(),'Premium Construction')]");
-	public static final By panel2Expand = By.xpath("//ul[@class='easy-to__panel-list']/li[2]/div[2]");
-	public static final By txtPanel2 = By.xpath("//p[contains(text(),'stainless steel frame')]");
-	public static final By panel3Expand = By.xpath("//ul[@class='easy-to__panel-list']/li[3]/div[2]");
-	public static final By txtPanel3 = By.xpath("//p[contains(text(),'The Modular Outdoor Kitchen is customizable')]");
+	public static final By panel2Expand = By.xpath("(//div[@class='easy-ko__plus'])[2]");
+	public static final By txtPanel2 = By.xpath("//span[contains(text(),'stainless steel frame')]");
+	public static final By panel3Expand = By.xpath("(//div[@class='easy-ko__plus'])[3]");
+	public static final By txtPanel3 = By.xpath("//span[contains(text(),'The Modular Outdoor Kitchen is customizable')]");
 	public static final By lblPanel3Header = By.xpath("//h2[contains(text(),'The most Forgiving Grills On Earth')]");
 	public static final By lnkBannerExpand1 = By.xpath("//div[@class='g2c-explorable-image__trigger'][3]");
 	public static final By lnkBannerExpand2 = By.xpath("//div[@class='g2c-explorable-image__trigger'][4]");
