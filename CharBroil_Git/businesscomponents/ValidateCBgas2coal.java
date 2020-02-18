@@ -46,7 +46,6 @@ public class ValidateCBgas2coal extends ReusableLibrary {
 			validateSmallImgsOnImageSection();
 			validateBigImageOnImageSection();
 			validateShopNow();
-			Thread.sleep(5000);
 			validateExploreLink();
 		}
 		catch(Exception e){
@@ -224,7 +223,7 @@ public class ValidateCBgas2coal extends ReusableLibrary {
 			else{
 				report.updateTestLog("Validate Shop Button Navigation under  Gas-2-CoalHybrid Grill section  ", "Navigation unsuccessful ", Status.FAIL);
 			}
-
+			driver.navigate().back();
 		}
 		catch(Exception e){
 			report.updateTestLog("Validate Shop Now Button  ", "Validation failed. Exception - "+e, Status.FAIL);
