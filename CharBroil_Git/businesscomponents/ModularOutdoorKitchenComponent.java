@@ -252,7 +252,7 @@ public class ModularOutdoorKitchenComponent extends ReusableLibrary {
 			driver.navigate().back();
 			
 			driver.findElement(ModularOutdoorKitchen.buttonExploreModularOutdoorKitchen).click();
-			if (driver.getCurrentUrl().contains("builtinkitchen"))
+			if (driver.getCurrentUrl().contains("modularoutdoorkitchen"))
 				report.updateTestLog(" Outdoor Kitchen Explore ModularOutdoorKitchen Validation", " Outdoor kitchen page explore link is navigating to correct page. ", Status.PASS);
 			else
 				report.updateTestLog(" Outdoor Kitchen Explore ModularOutdoorKitchen Validation", " Outdoor kitchen page explore link is not navigating to correct page.", Status.FAIL);
