@@ -37,4 +37,14 @@ public class ModularOutdoorKitchen {
 	public static final By btnShopModularOutdoorKitchen = By.xpath("//a[@class='shop-now__button']");
 	public static final By lblModularOutdoorKitchen = By.xpath("//h1[contains(text(),'Modular Outdoor Kitchen')]");
 	
+	
+	/***************************************/
+	
+	public static final By titleOutdoorKitchen =By.xpath("//div[@class='page-title']/h1");
+	public static final By sectionBuiltInKitchen =By.xpath("(//div[@class='col-lg-6 portfolio-item'])[1]");
+	public static final By sectionModularOutdoorKitchen =By.xpath("(//div[@class='col-lg-6 portfolio-item'])[2]");
+	public static final By buttonExploreBuiltInKitchen =By.xpath("(//a[@class='featured-product__button button'])[1]");
+	public static final By buttonExploreModularOutdoorKitchen =By.xpath("(//a[@class='featured-product__button button'])[2]");
+	
+	
 }

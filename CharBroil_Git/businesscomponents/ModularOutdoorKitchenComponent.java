@@ -225,7 +225,44 @@ public class ModularOutdoorKitchenComponent extends ReusableLibrary {
 	/********************************************************************************************************************************************************************************************/
 
 
+	/******************************************** Validate outdoor kitchen landing page *****************************************************************/	
+	
+	public void validateOutdoorKitchenPage() {
+		try {
+			if(driver.findElement(ModularOutdoorKitchen.titleOutdoorKitchen).isDisplayed())
+				report.updateTestLog(" Outdoor Kitchen Title Validation", " Outdoor kitchen page Title is  displayed properly.", Status.PASS);
+			else
+				report.updateTestLog(" Outdoor Kitchen Title Validation", " Outdoor kitchen page Title is  not displayed properly.", Status.FAIL);
+			
+			if(driver.findElement(ModularOutdoorKitchen.sectionBuiltInKitchen).isDisplayed())
+				report.updateTestLog(" Outdoor Kitchen  Built in Kitchen Validation", " Outdoor kitchen page Built in Kitchen section is  displayed properly.", Status.PASS);
+			else
+				report.updateTestLog(" Outdoor Kitchen Built in Kitchen Validation", " Outdoor kitchen page Built in Kitchen section is  not displayed properly.", Status.FAIL);
+			
+			if(driver.findElement(ModularOutdoorKitchen.sectionModularOutdoorKitchen).isDisplayed())
+				report.updateTestLog(" Outdoor Kitchen ModularOutdoorKitchen Validation", " Outdoor kitchen page ModularOutdoorKitchen section is  displayed properly.", Status.PASS);
+			else
+				report.updateTestLog(" Outdoor Kitchen ModularOutdoorKitchen Validation", " Outdoor kitchen page ModularOutdoorKitchen section is  not displayed properly.", Status.FAIL);
+			
+			driver.findElement(ModularOutdoorKitchen.buttonExploreBuiltInKitchen).click();
+			if (driver.getCurrentUrl().contains("builtinkitchen"))
+				report.updateTestLog(" Outdoor Kitchen Explore builtin kitchen Validation", " Outdoor kitchen page explore link is navigating to correct page. ", Status.PASS);
+			else
+				report.updateTestLog(" Outdoor Kitchen Explore builtin kitchen Validation", " Outdoor kitchen page explore link is not navigating to correct page.", Status.FAIL);
+			driver.navigate().back();
+			
+			driver.findElement(ModularOutdoorKitchen.buttonExploreModularOutdoorKitchen).click();
+			if (driver.getCurrentUrl().contains("builtinkitchen"))
+				report.updateTestLog(" Outdoor Kitchen Explore ModularOutdoorKitchen Validation", " Outdoor kitchen page explore link is navigating to correct page. ", Status.PASS);
+			else
+				report.updateTestLog(" Outdoor Kitchen Explore ModularOutdoorKitchen Validation", " Outdoor kitchen page explore link is not navigating to correct page.", Status.FAIL);
+			driver.navigate().back();
+		}
+		catch(Exception e){
+			report.updateTestLog("Outdoor Kitchen Page Validation", "Exception while validating  Outdoor kitchen page functionalities", Status.FAIL);
 
+		}
+	}
 
 
 }
