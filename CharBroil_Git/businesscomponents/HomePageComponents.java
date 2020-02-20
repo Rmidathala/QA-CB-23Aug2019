@@ -3309,4 +3309,43 @@ public class HomePageComponents extends ReusableLibrary {
 			report.updateTestLog("Exception in waiting", "Exception is " + e.getMessage(), Status.FAIL);
 		}
 	}
+	
+	public void homePopUp() 
+	{
+		try {
+			wdu.wait(5000);
+			if(wdu.objectExists(By.xpath("//iframe[@id='lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652']")))
+			{
+				driver.switchTo().frame("lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652");
+
+				Thread.sleep(2000);
+
+				try {
+
+					if(driver.findElement(By.xpath("//button[@class='button2']")).isDisplayed())
+					{
+						driver.findElement(By.xpath("//button[@class='button2']")).click();
+
+						driver.switchTo().defaultContent();
+
+
+						report.updateTestLog("Pop Up Handle", " Pop up Appeared and closed Successfully", Status.PASS);
+					}
+				} 
+				catch (Exception e) {
+					driver.switchTo().defaultContent();
+					report.updateTestLog("Pop Up Handle", " Pop up did not appear", Status.PASS);
+				}
+			}
+
+			else
+			{
+				report.updateTestLog("Pop Up Handle", "No pop up iframe is present", Status.PASS);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Exception in popup handling", "Exception is " + e, Status.FAIL);
+		}
+	}
 	}
