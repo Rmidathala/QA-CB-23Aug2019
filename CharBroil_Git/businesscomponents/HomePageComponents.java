@@ -3313,8 +3313,9 @@ public class HomePageComponents extends ReusableLibrary {
 	public void homePopUp() 
 	{
 		try {
-			wdu.wait(5000);
+			Thread.sleep(5000);
 			if(wdu.objectExists(By.xpath("//iframe[@id='lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652']")))
+				//if(driver.findElement(By.xpath("//iframe[@id='lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652']")).isDisplayed())
 			{
 				driver.switchTo().frame("lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652");
 
