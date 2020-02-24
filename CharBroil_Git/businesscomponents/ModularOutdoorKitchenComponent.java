@@ -1,16 +1,21 @@
 package businesscomponents;
 
+import org.openqa.selenium.JavascriptExecutor;
+
 import com.cognizant.framework.Status;
 import com.cognizant.framework.selenium.WebDriverUtil;
 
 import supportlibraries.ReusableLibrary;
 import supportlibraries.ScriptHelper;
+import uimap.CBgas2coal;
 import uimap.ModularOutdoorKitchen;
 
 public class ModularOutdoorKitchenComponent extends ReusableLibrary {
 
 
 	WebDriverUtil obj=new WebDriverUtil(driver);
+	ValidateCBgas2coal g2c=new ValidateCBgas2coal(scriptHelper);
+	JavascriptExecutor jse = (JavascriptExecutor) driver.getWebDriver();
 
 
 
@@ -263,6 +268,73 @@ public class ModularOutdoorKitchenComponent extends ReusableLibrary {
 
 		}
 	}
+	
+	public void validateBuiltInKitchenPage() {
+		try {
+			obj.objectExists(ModularOutdoorKitchen.titleBuiltInKitchen);
 
+			g2c.validateStickybar();
+			validateBacktoTopArrowBuiltInKitchen();
+			
+			driver.findElement(ModularOutdoorKitchen.plusButtonBuiltYourWay).click();
+			if(driver.findElement(ModularOutdoorKitchen.titleButtonBuiltYourWay).isDisplayed()) { 
+					driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();;
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button opening to correct section. ", Status.PASS);
+			}
+			else {
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button not opening to correct section. ", Status.FAIL);
+				driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();
+		}
 
+			driver.findElement(ModularOutdoorKitchen.plusButtonPremiumConstruction).click();
+			if(driver.findElement(ModularOutdoorKitchen.titleButtonPremiumConstruction).isDisplayed()) {
+						driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button opening to correct section. ", Status.PASS);
+			}
+			else {
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button not opening to correct section. ", Status.FAIL);
+				driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();
+		}
+			
+			driver.findElement(ModularOutdoorKitchen.plusButtonZonalCooking).click();
+			if(driver.findElement(ModularOutdoorKitchen.titleButtonZonalCooking).isDisplayed()) {
+				driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button opening to correct section. ", Status.PASS);
+			}
+			else {
+				report.updateTestLog(" Builtin Kitchen plus sliders  Validation", " Builtin kitchen plus button not opening to correct section. ", Status.FAIL);
+				driver.findElement(ModularOutdoorKitchen.buttonCloseDetails).click();
+		}
+			driver.findElement(ModularOutdoorKitchen.buttonShopBuiltInKitchen).click();
+			if(driver.getCurrentUrl().contains("/built-in-outdoor-kitchen")) {
+				report.updateTestLog(" Builtin Kitchen shop link Validation", " Builtin kitchen page shop link is navigating to correct page. ", Status.PASS);
+			driver.navigate().back();
+			}
+			else {
+				report.updateTestLog(" Builtin Kitchen shop link Validation", " Builtin kitchen page shop link is not navigating to correct page. ", Status.FAIL);
+			driver.navigate().back();
+			}
+		}
+		catch(Exception e){
+			report.updateTestLog("BuiltIn Kitchen Page Validation", "Exception while validating  Outdoor kitchen page functionalities", Status.FAIL);
+
+		}
+	}
+
+	public void validateBacktoTopArrowBuiltInKitchen(){
+		try{
+			jse.executeScript("window.scrollBy(0,1000)", "");
+			Thread.sleep(500);
+			driver.findElement(CBgas2coal.BackToTopArrow).isDisplayed();
+			obj.highlightElement(CBgas2coal.BackToTopArrow);
+			driver.findElement(CBgas2coal.BackToTopArrow).click();
+			//driver.findElement(CBgas2coal.Explorelink).isDisplayed();
+			//obj.highlightElement(CBgas2coal.Explorelink);
+			report.updateTestLog("Validate Back to Top Arrow ", "Validation successfull", Status.PASS);
+
+		}
+		catch(Exception e){
+			report.updateTestLog("Validate Back to Top Arrow ", "Validation unsuccessfull", Status.FAIL);
+		}
+	}
 }

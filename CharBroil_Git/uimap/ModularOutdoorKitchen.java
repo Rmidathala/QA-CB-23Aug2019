@@ -38,7 +38,7 @@ public class ModularOutdoorKitchen {
 	public static final By lblModularOutdoorKitchen = By.xpath("//h1[contains(text(),'Modular Outdoor Kitchen')]");
 	
 	
-	/***************************************/
+	/**********************OutdoorKitchen*****************/
 	
 	public static final By titleOutdoorKitchen =By.xpath("//div[@class='page-title']/h1");
 	public static final By sectionBuiltInKitchen =By.xpath("(//div[@class='col-lg-6 portfolio-item'])[1]");
@@ -47,4 +47,16 @@ public class ModularOutdoorKitchen {
 	public static final By buttonExploreModularOutdoorKitchen =By.xpath("(//a[@class='featured-product__button button'])[2]");
 	
 	
+	
+	/**********BuiltIn kItchen***********/
+	
+	public static final By titleBuiltInKitchen =By.xpath("//div[@class='nyc-hero__headliner nyc-hero__headliner_text']");
+	public static final By plusButtonBuiltYourWay =By.xpath("(//div[@class='easy-to__trigger'])[1]");
+	public static final By plusButtonPremiumConstruction =By.xpath("(//div[@class='easy-to__trigger'])[2]");
+	public static final By plusButtonZonalCooking =By.xpath("(//div[@class='easy-to__trigger'])[3]");
+	public static final By buttonCloseDetails=By.xpath("(//div[@class='easy-to__close'])");
+	public static final By buttonShopBuiltInKitchen=By.xpath("//a[@class='shop-now__button']");
+	public static final By titleButtonBuiltYourWay =By.xpath("(//*[@class='easy-to__slide-copy']/h4)[1]");
+	public static final By titleButtonPremiumConstruction =By.xpath("(//*[@class='easy-to__slide-copy']/h4)[2]");
+	public static final By titleButtonZonalCooking =By.xpath("(//*[@class='easy-to__slide-copy']/h4)[3]");
 }
