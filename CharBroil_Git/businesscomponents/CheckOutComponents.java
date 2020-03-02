@@ -262,6 +262,12 @@ public class CheckOutComponents extends ReusableLibrary {
 				report.updateTestLog("login Checkout", "Login while checkout with registered user is successful",
 						Status.PASS);
 			}
+			
+			else if (driver.findElement(ShoppingCartPage.lblShoppingCart).isDisplayed()) {
+				driver.findElement(ShoppingCartPage.btnProceedToCheckout).click();
+				report.updateTestLog("login Checkout", "Login while checkout with registered user is successful",
+						Status.PASS);
+			}
 
 			else {
 				report.updateTestLog("login Checkout", "Login while checkout with registered user is not successful",

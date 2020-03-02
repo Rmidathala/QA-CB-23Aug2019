@@ -43,4 +43,6 @@ public class ShoppingCartPage {
 	public static final By selectProduct1Quantity = By.xpath("(//select[@class='form__input-qty'])[1]");
 	public static final By selectProduct2Quantity = By.xpath("(//select[@class='form__input-qty'])[2]");
 	public static final By selectProduct3Quantity = By.xpath("(//select[@class='form__input-qty'])[3]");
+	
+	public static final By btnProceedToCheckout = By.xpath("(//button[@title='Proceed to Checkout'])[1]");
 }
