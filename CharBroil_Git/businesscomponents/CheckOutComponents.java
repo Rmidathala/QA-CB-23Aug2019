@@ -576,7 +576,8 @@ public class CheckOutComponents extends ReusableLibrary {
 
 			String email = dataTable.getData("General_Data", "Email");
 			String pass = dataTable.getData("General_Data", "Password");
-
+			
+			wdu.waitUntilPageReadyStateComplete(120);
 			driver.findElement(HomePage.lnkMyAccount).click();
 			wdu.waitUntilPageReadyStateComplete(15);
 			wdu.waitUntilElementEnabled(HomePage.lnkCreateAccount, 15);
