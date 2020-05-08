@@ -3318,9 +3318,7 @@ public class HomePageComponents extends ReusableLibrary {
 				//if(driver.findElement(By.xpath("//iframe[@id='lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652']")).isDisplayed())
 			{
 				driver.switchTo().frame("lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652");
-
 				Thread.sleep(2000);
-
 				try {
 
 					if(driver.findElement(By.xpath("//button[@class='button2']")).isDisplayed())
