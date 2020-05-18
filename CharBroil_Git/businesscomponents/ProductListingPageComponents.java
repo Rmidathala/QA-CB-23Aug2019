@@ -1135,7 +1135,7 @@ public class ProductListingPageComponents extends ReusableLibrary {
 					&& driver.findElement(ProductDetailsPage.lblProductDescription).isDisplayed()
 					&& driver.findElement(ProductDetailsPage.lblModelNumber).isDisplayed()
 					&& driver.findElement(ProductDetailsPage.selectQuantity).isDisplayed() &&
-					// driver.findElement(ProductDetailsPage.btnWhereToBuy).isDisplayed() &&
+					 driver.findElement(ProductDetailsPage.btnWhereToBuy).isDisplayed() &&
 					driver.findElement(ProductDetailsPage.imgProductDetails).isDisplayed()
 					&& driver.findElement(ProductDetailsPage.lblProductDescription).isDisplayed()
 			// && driver.findElement(ProductDetailsPage.selectColorPDP).isDisplayed()
