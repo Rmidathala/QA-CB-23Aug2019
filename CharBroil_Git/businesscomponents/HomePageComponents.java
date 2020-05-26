@@ -3314,7 +3314,7 @@ public class HomePageComponents extends ReusableLibrary {
 	{
 		try {
 			Thread.sleep(10000);
-			if(wdu.objectExists(By.xpath("//iframe[@id='lightbox-iframe-d4ef84d5-9b19-42e8-946a-d275b4adbdfc']")))
+			if(wdu.objectExists(By.xpath("//iframe[@id='lightbox-iframe-36e4eca0-fa30-4ea0-93c8-835aee85521d']")))
 				//if(driver.findElement(By.xpath("//iframe[@id='lightbox-iframe-6aeae9b9-3b7d-496f-a66c-7b17688c8652']")).isDisplayed())
 			{
 				driver.switchTo().frame("lightbox-iframe-d4ef84d5-9b19-42e8-946a-d275b4adbdfc");
